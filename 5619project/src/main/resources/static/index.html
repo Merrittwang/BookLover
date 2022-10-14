@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div id="head-placeholder"></div>
+	<title>Homepage</title>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="body">
+	<div id="error_message"></div>
+	<div class="modal fade" id="detailSearch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Advanced Search</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<form id="search_form">
+						<div class="form-group">
+							<label class="control-label">Title:</label>
+							<input type="text" class="form-control" id="titleName"  placeholder="By title...">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Year:</label>
+							<input type="text" class="form-control" id="year" placeholder="By year...">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Director</label>
+							<input type="text" class="form-control" id="directorName" placeholder="By director name...">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Star</label>
+							<input type="text" class="form-control" id="starName" placeholder="By star name...">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Genre</label>
+							<input type="text" class="form-control" id="genre" placeholder="By genre...">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary" onclick="detailSearch();">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="browse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Browse</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body" style="margin: 2% 7% 2% 7%;">
+					<h5>Title</h5>
+					<hr>
+					<div id="byTitle"></div>
+					<br>
+					<h5>Genre</h5>
+					<hr>
+					<div id="byGenre"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="search_container">
+		<h1 style=" text-align:center;">EBOOK LOVER</h1>
+		<br>
+		<div class="input-group">
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#browse"><i class="fa fa-filter" aria-hidden="true"></i></button>
+      </span>
+
+			<input type="text" name="hero" id="autocomplete" class="autocomplete-searchbox form-control rounded" placeholder="Search by book title"/>
+
+			<span class="input-group-btn">
+        <button class="btn btn-default" type="button" onclick="normalSearch();"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </span>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#detailSearch"><i class="fa fa-cog" aria-hidden="true"></i></button>
+		</div>
+	</div>
+</div>
+
+<footer id="footer-placeholder"></footer>
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.min.js"></script>
+<script src="javascript/search.js"></script>
+<script src="javascript/autocomplete.js"></script>
+
+<script>
+  $(function(){
+    $("#head-placeholder").load("./html/head.html");
+    $("#nav-placeholder").load("./html/navigation.html");
+    $("#footer-placeholder").load("./html/footer.html");
+  });
+</script>
+
+
+</body>
+</html>

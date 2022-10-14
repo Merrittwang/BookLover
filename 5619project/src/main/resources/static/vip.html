@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--导入核心文件-->
+    <script src="../bootstrap3/js/holder.js"></script>
+    <link href="../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../bootstrap3/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <title>ebook</title>
+</head>
+<body>
+<div class="panel-body">
+    <!--修改资料表单开始-->
+    <form id="form-change-info" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-md-2 control-label">points：</label>
+            <div class="col-md-8">
+                <input id="points" type="text" class="form-control" value="default" readonly="readonly">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">vip：</label>
+            <div class="col-md-8">
+                <input id="vip" name="phone" type="text" class="form-control" placeholder="请输入电话号码" value="default">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">online：</label>
+            <div class="col-md-8">
+                <input id="online_time" name="email" type="text" class="form-control" placeholder="请输入电子邮箱" value="default">
+            </div>
+        </div>
+        <form action="search.html" class="form-inline pull-right" role="form">
+            <input type="button" id="btn_points"  οnclick="btnAction1()" value="buy points">
+            <input type="button" id="btn_vip"  οnclick="btnAction2()" value="buy vip">
+        </form>
+    </form>
+</div>
+    <script type="text/javascript">
+ 		$(document).ready(function() {
+				$.ajax({
+					url: "/vip/getByuid2",
+					type: "GET",
+					dataType: "JSON",
+					success: function (json) {
+					        console.log("points=" + json.data.points);
+							console.log("vip=" + json.data.vip);
+							console.log("online_data=" + json.data.online_data);
+					        $("#points").val(json.data.points);
+                            $("#vip").val(json.data.vip);
+                            $("#online_time").val(json.data.online_time);
+                    }
+                });
+        alert("click");
+		});
+    </script>
+    <script type="text/javascript">
+		$(document).on("click","btn_points",function(){
+        alert("click");
+			})
+    </script>
+</body>
+</html>

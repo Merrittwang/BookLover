@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="head-placeholder"></div>
+    <title>Login</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-light fixed-top " style=" border-bottom: 1px solid #e0dfdf; background-color: #f5f5f5">
+    <div class="container">
+        <a class="navbar-brand" href="#">EBOOK LOVER</a>
+    </div>
+</nav>
+
+<div class="body">
+    <form class = 'login_form' id="login_form" method="post" action="form-recaptcha">
+        <div class="login_container">
+            <label><b>Username</b></label><br>
+            <input class="form-control" name="username" placeholder="Enter Username" type="text" id="username" required>
+            <label><b>Password</b></label><br>
+            <input class="form-control" name="password" placeholder="Enter Password" type="password" id="password" required>
+            <input class="btn btn-dark" type=button" value="Login" style="width:100%;" id = "btn-login">
+        </div>
+
+    </form>
+    <div id="error_message"></div>
+</div>
+
+<footer id="footer-placeholder" ></footer>
+
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+<script>
+  $(function(){
+    $("#head-placeholder").load("./html/head.html");
+    $("#footer-placeholder").load("./html/footer.html");
+  });
+</script>
+<script>
+            $("#btn-login").click(function () {
+                $.ajax({
+                    url: "/users/login",
+                    type: "POST",
+                    data: $("#login_form").serialize(),
+                    dataType: "JSON",
+                    success: function (json) {
+                        if (json.state == 200) {
+                            //alert("登录成功")
+                            //跳转到系统主页index.html
+                            //index和login在同一个目录结构下,所以可以用相对路
+                            // 径index.html来确定跳转的页面,index.html和./ind
+                            // ex.html完全一样,因为./就是表示当前目录
+                            // 结构,也可以用../web/index.html
+                            location.href = "index.html";
+                            $.cookie("avatar",json.data.avatar,{expires: 7});
+                        } else {
+                            alert("login fail")
+                        }
+                    },
+                    error: function (xhr) {
+                        //xhr.message可以获取未知异常的信息
+                        alert("登录时产生未知的异常!"+xhr.message);
+                    }
+                });
+            });
+        </script>
+
+</body>
+
+
+</html>
+
