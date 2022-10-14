@@ -165,7 +165,7 @@ INSERT INTO book VALUES(27,'Wuthering Heights','Emily Brontë',20,2,22);
 INSERT INTO book VALUES(28,'Paper Heart','Aileen Arrington',20,2,10);
 INSERT INTO book VALUES(29,'Me Before You','Jojo Moyes',20,2,11);
 
-INSERT INTO user VALUES (1,'123456',10,'kevin',1,1,'yuechen@google.com',0,'kevin','2022-08-01 12:00:00','kevin','2022-08-01 12:00:00');
+INSERT INTO user VALUES (1,'123456',10,'kevin2',1,1,'yuechen@google.com',0,'kevin','2022-08-01 12:00:00','kevin','2022-08-01 12:00:00');
 INSERT INTO user VALUES (2,'123456',10,'Yuzhe',1,1,'yuzhe1997@google.com',0,'Yuzhe','2022-08-01 12:00:00','Yuzhe','2022-08-01 12:00:00');
 INSERT INTO user VALUES (3,'123456',10,'Haonan',1,0,'haonan@google.com',0,'Haonan','2022-08-01 12:00:00','Haonan','2022-08-01 12:00:00');
 INSERT INTO subscribe VALUES (1,2);
