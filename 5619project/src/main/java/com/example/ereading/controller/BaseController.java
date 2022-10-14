@@ -25,19 +25,19 @@ public class BaseController {
         JsonResult<Void> result = new JsonResult<>(e);
         if (e instanceof DuplicateUsernameException) {
             result.setState(4000);
-            result.setMessage("用户名已经被占用的异常");
+            result.setMessage("username has been used");
         } else if (e instanceof UsernameErrorException) {
             result.setState(4001);
-            result.setMessage("用户数据不存在的异常");
+            result.setMessage("user data doesn't exist");
         } else if (e instanceof PasswordErrorException) {
             result.setState(4002);
-            result.setMessage("用户名密码错误的异常");
+            result.setMessage("password error");
         }  else if (e instanceof InsertException) {
             result.setState(5000);
-            result.setMessage("插入数据时产生未知的异常");
+            result.setMessage("error when inputting");
         } else if (e instanceof UpdateException) {
             result.setState(5001);
-            result.setMessage("更新数据时产生未知的异常");
+            result.setMessage("error when updating");
         }
         return result;
     }
