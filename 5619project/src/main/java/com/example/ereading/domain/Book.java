@@ -1,6 +1,6 @@
 package com.example.ereading.domain;
 
-public class Book extends BaseEntity {
+public class Book{
     private Integer book_id;
     private String book_name;
     private String author;
@@ -8,11 +8,11 @@ public class Book extends BaseEntity {
     private Integer category_id;
     private Integer likes;
 
-    private Integer years;
+    private Long years;
 
-    public Integer getYears() {return years;}
+    public Long getYears() {return years;}
 
-    public void setYears(Integer years) {this.years = years;}
+    public void setYears(Long years) {this.years = years;}
     public Integer getBook_id() {
         return book_id;
     }
