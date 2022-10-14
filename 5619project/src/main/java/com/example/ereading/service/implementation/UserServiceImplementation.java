@@ -25,6 +25,10 @@ public class UserServiceImplementation implements IUserService {
             throw new DuplicateUsernameException("This username is already used by others.");
         }
 
+        if(!user.getRepeatPassword().equals(user.getPassword())){
+            throw new PasswordErrorException("Please confirm password is the same.");
+        }
+
 
 
         user.setIsDelete(0);

@@ -6,6 +6,8 @@ public class User extends BaseEntity {
     private Integer uid;
     private String username;
     private String password;
+
+    private String repeatPassword;
     private String email;
     private Integer gender;
     private Integer isDelete;
@@ -56,6 +58,14 @@ public class User extends BaseEntity {
 
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 
     @Override
