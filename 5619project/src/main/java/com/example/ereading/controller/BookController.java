@@ -44,10 +44,15 @@ public class BookController extends BaseController{
     }
 
     @RequestMapping("search")
-    public JsonResult<List<Book>> SearchList(@RequestParam("title")String title){
-        List<Book> data = bookService.SearchList(title);
+    public JsonResult<List<Book>> SearchList(
+            @RequestParam(value = "title",required = false)String bookName,
+            @RequestParam(value = "author",required = false)String author,
+            @RequestParam(value = "category",required = false)String category,
+            @RequestParam(value = "years",required = false)Long years){
+        List<Book> data = bookService.SearchList(bookName,author,category,years);
         return new JsonResult<List<Book>>(OK, data);
     }
+
     @RequestMapping("bookId")
     public JsonResult<Book> getByBookId(@RequestParam("id") Integer id) {
         Book data = bookService.GetBookById(id);
