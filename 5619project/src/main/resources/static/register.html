@@ -13,14 +13,16 @@
 </nav>
 
 <div class="body">
-    <form class = 'login_form' id="register_form" method="post" action="form-recaptcha">
-        <div class="login_container">
+    <form class = 'reg_form' id="reg_form" method="post" action="form-recaptcha">
+        <div class="reg_container">
             <h1 align="center"><b>Register</b></h1>
             <label><b>Username</b></label><br>
             <input class="form-control" name="username" placeholder="Enter Username" type="text" id="username" required>
             <label><b>Password</b></label><br>
             <input class="form-control" name="password" placeholder="Enter Password" type="password" id="password" required>
-            <input class="btn btn-dark" type=button" value="Register Now" style="margin-top:10px; width:100%;" id = "btn-login">
+            <label><b>Confirm Password</b></label><br>
+            <input class="form-control" name="password2" placeholder="Enter Again" type="password" id="password2" required>
+            <input class="btn btn-dark" type=button" value="Register Now" style="margin-top:10px; width:100%;" id = "btn-reg">
             <input style="margin-top:10px; width:100%;" class="btn btn-dark" type="button" value="Go back to login"  id="btn-register" onclick="window.location.href='/login.html'">
         </div>
 
@@ -45,9 +47,9 @@
   });
 </script>
 <script>
-            $("#btn-login").click(function () {
+            $("#btn-reg").click(function () {
                 $.ajax({
-                    url: "/users/login",
+                    url: "/users/reg",
                     type: "POST",
                     data: $("#login_form").serialize(),
                     dataType: "JSON",
