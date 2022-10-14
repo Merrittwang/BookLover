@@ -91,7 +91,7 @@ public class UserServiceImplementation implements IUserService {
 
         User result = userMapper.findByUid(uid);
         if (result == null || result.getIsDelete() == 1) {
-            throw new UsernameErrorException("用户数据不存在");
+            throw new UsernameErrorException("user not exists");
         }
 
 
@@ -108,7 +108,7 @@ public class UserServiceImplementation implements IUserService {
     public void changeInfo(Integer uid, User user) {
         User result = userMapper.findByUid(uid);
         if (result == null || result.getIsDelete() == 1) {
-            throw new UsernameErrorException("用户数据不存在");
+            throw new UsernameErrorException("user not exists");
         }
         user.setUid(uid);
         user.setModifiedUser(user.getUsername());
@@ -116,7 +116,7 @@ public class UserServiceImplementation implements IUserService {
 
         Integer rows = userMapper.updateInfoByUid(user);
         if (rows!=1) {
-            throw new UpdateException("更新数据时产生异常");
+            throw new UpdateException("error in updating");
         }
     }
 }
