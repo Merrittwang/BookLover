@@ -23,6 +23,7 @@ public class UserController extends BaseController{
     @RequestMapping("reg")
 
     public JsonResult<Void> reg(User user) {
+        System.out.println(user);
         userService.reg(user);
         return new JsonResult<>(OK);
     }
