@@ -13,7 +13,7 @@ public interface IBookService {
 
     List<Book> findHotList4();
 
-    List<Book> SearchList(String bookName,String author,String category,Long years);
+    List<Book> SearchList(String bookName,String author,String category,int years);
 
     Book GetBookById(int id);
     List<Book> findList1();

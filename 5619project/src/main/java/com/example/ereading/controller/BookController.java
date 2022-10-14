@@ -48,7 +48,12 @@ public class BookController extends BaseController{
             @RequestParam(value = "title",required = false)String bookName,
             @RequestParam(value = "author",required = false)String author,
             @RequestParam(value = "category",required = false)String category,
-            @RequestParam(value = "years",required = false)Long years){
+            @RequestParam(value = "year",required = false)Long _years){
+        int years = 0;
+        if(_years != null){
+            years = _years.intValue();
+        }
+        System.out.println(" "+bookName+" "+author+" "+category+" "+years);
         List<Book> data = bookService.SearchList(bookName,author,category,years);
         return new JsonResult<List<Book>>(OK, data);
     }

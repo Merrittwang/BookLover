@@ -44,16 +44,14 @@ function handleResult(resultData) {
 function detailSearch(){
     let titleName = document.getElementById("titleName").value;
     let year = document.getElementById("year").value;
-    let directorName = document.getElementById("directorName").value;
-    let starName = document.getElementById("starName").value;
-    let genre = document.getElementById("genre").value;
-    if(titleName || year ||  directorName || starName || genre) {
-        window.location.replace("./movie-list.html?"
+    let authorName = document.getElementById("authorName").value;
+    let category = document.getElementById("category").value;
+    if(titleName || year ||  authorName  || category) {
+        window.location.replace("./blist.html?"
             + (titleName ? "&title=" + titleName : "")
             + (year ? "&year=" + year : "")
-            + (directorName ? "&directorName=" + directorName : "")
-            + (starName ? "&starName=" + starName : "")
-            + (genre ? "&genre=" + genre : ""));
+            + (authorName ? "&author=" + authorName : "")
+            + (category ? "&category=" + category : ""));
     }
 }
 

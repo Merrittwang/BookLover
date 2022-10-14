@@ -84,7 +84,6 @@ function addBook(id, title){
  */
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const Url = "/books/bookId/" + urlParams.get('B');
 
 //let currentPage = getParameterByName("page");
 //let itemPerPage = getParameterByName("ipp");
@@ -93,9 +92,9 @@ const Url = "/books/bookId/" + urlParams.get('B');
 //let sortBy = getParameterByName("sortBy");
 
 let title = urlParams.get('title');
-//let year = getParameterByName("year");
-//let directorName = getParameterByName("directorName");
-//let starName = getParameterByName("starName");
+let year = urlParams.get("year");
+let author = urlParams.get("author");
+let category = urlParams.get("category");
 //let genre = getParameterByName("genre");
 //let browse = getParameterByName("browse");
 //let fulltext = getParameterByName("fulltext");
@@ -186,6 +185,17 @@ if(window.location.href.split("/")[4] === "movie-list.html" ||
  * Once this .js is loaded, following scripts will be executed by the browser
  */
 // Makes the HTTP GET request and registers on success callback function handleStarResult
+console.log("books/search?"
+            //      + "sortBy=" + sortBy
+            //      + "&titleOrder=" + titleOrder
+            //      + "&ratingOrder=" + ratingOrder
+            //      + "&page=" + currentPage
+            //      + "&ipp=" + itemPerPage
+                  + (title ? "&title=" + title : "")
+                  + (year ? "&year=" + year : "")
+                  + (author ? "&author=" + author : "")
+                  + (category ? "&category=" + category : ""))
+
 jQuery.ajax({
   dataType: "json", // Setting return data type
   method: "GET", // Setting request method
@@ -195,11 +205,10 @@ jQuery.ajax({
 //      + "&ratingOrder=" + ratingOrder
 //      + "&page=" + currentPage
 //      + "&ipp=" + itemPerPage
-      + "title=" + title
-//      + "&year=" + year
-//      + "&directorName=" + directorName
-//      + "&starName=" + starName
-//      + "&genre=" + genre
+      + (title ? "&title=" + title : "")
+      + (year ? "&year=" + year : "")
+      + (author ? "&author=" + author : "")
+      + (category ? "&category=" + category : "")
 //      + "&browse=" + browse
 //      + "&fulltext=" + fulltext
       ,

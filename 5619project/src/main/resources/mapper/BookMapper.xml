@@ -35,7 +35,7 @@
         <if test="bookName!=null">and book.book_name like concat('%',#{bookName},'%')</if>
         <if test="author!=null">and book.authors like concat('%',#{author},'%')</if>
         <if test="category!=null">and book.category_id = category.category_id and category.category_name like concat('%',#{category},'%')</if>
-        <if test="years!=null">and years =#{years})</if>
+        <if test="years!=0">and years =#{years}</if>
 <!--        <if test="bookName!=null">book_name like concat('%',#{book_name},'%')</if>-->
     </select>
 

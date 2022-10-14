@@ -24,7 +24,7 @@ public interface BookMapper {
 
     List<Book> findHotList4();
 
-    List<Book> SearchList(String bookName,String author,String category,Long years);
+    List<Book> SearchList(String bookName,String author,String category,int years);
 
     List<Book> findList1();
     List<Book> findList2();

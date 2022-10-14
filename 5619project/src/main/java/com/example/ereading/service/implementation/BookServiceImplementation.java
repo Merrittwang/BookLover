@@ -40,7 +40,7 @@ public class BookServiceImplementation implements IBookService {
 
 
     @Override
-    public List<Book> SearchList(String bookName,String author,String category,Long years){
+    public List<Book> SearchList(String bookName,String author,String category,int years){
         List<Book> list = bookMapper.SearchList(bookName,author,category,years);
         System.out.println(list);
         return list;
