@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ereading.mapper.SubscribeMapper">
+    <resultMap id="defaultuserMap" type="com.example.ereading.domain.defaultuser">
+        <result column="account_id" property="uid"></result>
+        <result column="account_name" property="name"></result>
+    </resultMap>
+    <select id="getsubscribelist2" resultMap="defaultuserMap">
+        SELECT account_id,account_name from user where account_id in(select subscribe_id FROM subscribe WHERE subscriber_id = #{id})
+    </select>
+</mapper>

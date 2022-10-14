@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ereading.mapper.defaultbookMapper">
+    <resultMap id="defaultbookMap" type="com.example.ereading.domain.defaultbook">
+        <result column="book_id" property="book_id"></result>
+        <result column="book_name" property="book_name"></result>
+    </resultMap>
+    <select id="getbookhistorylist" resultMap="defaultbookMap">
+        SELECT book.book_id,book_name from book,readinghistory where book.book_id=readinghistory.book_id and readinghistory.user_id =#{id} Order by last_read_time
+    </select>
+    <select id="getboughtbooklist" resultMap="defaultbookMap">
+        SELECT book_id,book_name from book where book_id in(select book_id FROM pay WHERE user_id = #{id})
+    </select>
+</mapper>
